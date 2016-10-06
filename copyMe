@@ -3,6 +3,6 @@
 
 
 
-scp -r * ftp:/userweb/ungaro/public_html/data/e16/epid
+scp -r * ftp:/userweb/ungaro/public_html/data/e16/ppid
 
 
