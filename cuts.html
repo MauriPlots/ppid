@@ -1,0 +1,117 @@
+<html lang="en">
+	<head>
+		<style>
+			#indextable { 
+				font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; 
+				border-collapse: collapse; 
+			}
+			#indextable td { 
+				border: 1px solid #ddd; 
+				padding: 6px; 
+			}
+			#indextable tr:nth-child(even){background-color: #f2f2f2;} 
+			#indextable tr:hover {background-color: #ddd;}
+			#indextable td:hover {background-color: #119; color: white;}
+			.button { 
+					background-color: white;
+					color: black;
+					border: 2px solid #555555;
+					border-radius: 10%;
+					padding: 15px 32px;         /* Button size */
+					text-align: center;         /* Center text */
+					text-decoration: none;      /* No underline */
+					display: inline-block;      /* Inline block */
+					font-size: 16px;            /* Text size */
+					margin: 4px 2px;            /* Small margins */
+					cursor: pointer;            /* Pointer cursor */
+					transition: background-color 0.3s ease; /* Smooth background transition */
+			}
+			 
+			/* Hover effect */
+			button:hover {
+				background-color: #45a049; /* Darker green on hover */
+			}
+			/* Active state (when clicked) */
+			button:active {
+				transform: scale(0.98);    /* Slight shrink effect on click */
+			}
+			/* Selected (stay highlighted) */
+			button.selected {
+				background-color: #323fd5; /* Green when selected */
+				color: white;               /* White text when selected */
+				box-shadow: 0 5px #666;    /* Shadow for depth */
+			}
+			/* Optional: Focus state (when keyboard focused) */
+			button:focus {
+				outline: none;             /* Remove default focus outline */
+				box-shadow: 0 0 10px #719ECE; /* Custom blue glow */
+			}
+		</style>
+		<title>Mauri's plots</title>
+		<script>
+			function popPic() {picDisplayed = window.open(document.DIST.src, document.DIST.src,'statusbar=no, scrollbars=auto, status=no, resizable=no, width=1250, height=1250');}
+			function showPic(row, col) {
+				var dist = "img/"
+				dist += "dist-"
+				dist += row;
+				dist += "_"
+				dist += "sector-"
+				dist += col;
+				dist += ".png"
+				document.DIST.src = dist
+			}
+			function selectFirstButton() {
+				var buttons = document.querySelectorAll('button'); 
+				buttons.forEach(button => {if (button.textContent == "0") button.click();}); 
+			}
+			window.onload = function() {
+				selectFirstButton(); 
+			};
+		 </script>
+	 </head>
+	 <body>
+		 <center>
+			 <table> 
+				 <tr> 
+					 <td> 
+						 <table id="indextable" class="indextable"> 
+							 <tr> 
+								 <td> <sub> dist</sub> <sup> sector</sup> </td>
+								 <td>1</td>
+								 <td>2</td>
+								 <td>3</td>
+								 <td>4</td>
+								 <td>5</td>
+								 <td>6</td>
+								 <td>all</td>
+							 </tr> 
+							 <tr> 
+								 <td>dtfit</td>
+								 <td onclick="popPic()" onmouseover="showPic('dtfit', '1')" />
+								 <td onclick="popPic()" onmouseover="showPic('dtfit', '2')" />
+								 <td onclick="popPic()" onmouseover="showPic('dtfit', '3')" />
+								 <td onclick="popPic()" onmouseover="showPic('dtfit', '4')" />
+								 <td onclick="popPic()" onmouseover="showPic('dtfit', '5')" />
+								 <td onclick="popPic()" onmouseover="showPic('dtfit', '6')" />
+								 <td onclick="popPic()" onmouseover="showPic('dtfit', 'all')" />
+							 </tr> 
+							 <tr> 
+								 <td>massandbeta</td>
+								 <td onclick="popPic()" onmouseover="showPic('massandbeta', '1')" />
+								 <td onclick="popPic()" onmouseover="showPic('massandbeta', '2')" />
+								 <td onclick="popPic()" onmouseover="showPic('massandbeta', '3')" />
+								 <td onclick="popPic()" onmouseover="showPic('massandbeta', '4')" />
+								 <td onclick="popPic()" onmouseover="showPic('massandbeta', '5')" />
+								 <td onclick="popPic()" onmouseover="showPic('massandbeta', '6')" />
+								 <td onclick="popPic()" onmouseover="showPic('massandbeta', 'all')" />
+							 </tr> 
+						 </table> 
+					 </td> 
+					 <td> 
+						 <img name = "DIST" width="650px" src="img/dist-dtfit_sector-all.png"/> 
+					 </td> 
+				 </tr> 
+			 </table> 
+		 </center>
+	 </body>
+</html>
